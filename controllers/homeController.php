@@ -1,24 +1,16 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of homeController
- *
- * @author geral
- */
 class homeController extends controller {
     
     public function __construct() {
-       
+        parent::__construct();
     }
 
     public function index() {
         $dados = array();
+        
+        $produtos = new produtos();
+        $dados['produtos'] = $produtos->listar(8);
+        
         $this->loadTemplate('home', $dados);
     }
     

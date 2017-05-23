@@ -6,7 +6,10 @@ class Core {
         //$url = explode("index.php", $_SERVER['PHP_SELF']);
         //$url = end($url);
         
-        $url = '/'.((isset($_GET['q']))?$_GET['q']:'');
+        //$url = '/'.((isset($_GET['q']))?$_GET['q']:''); //usado no modulo mvc
+        
+        $url = explode("index.php", $_SERVER['PHP_SELF']); //resolveu o problema da categoria
+        $url = end($url);
         
         $params = array();
         if(!empty($url) && $url !='/'){

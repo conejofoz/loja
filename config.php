@@ -4,7 +4,7 @@ global $config;
 $config = array();
 if(ENVIRONMENT == "development"){
     define("BASE_URL", "http://localhost/pzp/loja");
-    $config['dbname'] = 'galeria';
+    $config['dbname'] = 'loja';
     $config['host']   = 'localhost';
     $config['dbuser'] = 'root';
     $config['dbpass'] = 'conejo74';
