@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Nossa loja</title>
+        <?php echo BASE_URL; ?>
         <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
     </head>
     <body>
@@ -8,7 +9,7 @@
         <div class="menu">
             <div class="menuint">
                 <ul>
-                    <a href="/home"><li>Home</li></a>
+                    <a href="<?php echo BASE_URL; ?>"><li>Home</li></a>
                     <a href="/empresa"><li>Empresa</li></a>
                     
                     <?php foreach ($menu as $menuitem): ?>

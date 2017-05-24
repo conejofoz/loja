@@ -36,7 +36,7 @@ class produtos extends Model {
     public function listar_categoria($cat){
         $sql = "SELECT * FROM produtos WHERE id_categoria = '$cat'";
         $sql = $this->db->query($sql);
-        
+        $produtos = array();
         if($sql->rowCount() > 0){
             $produtos = $sql->fetchAll();
         }

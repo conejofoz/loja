@@ -11,6 +11,7 @@ class categorias extends Model{
         $nome = '';
         if($sql->rowCount() > 0){
             $sql = $sql->fetch();
+            $nome = $sql['titulo'];
         }
         return $nome;
     }
