@@ -1,3 +1,20 @@
+<div class="banner">
+    <?php 
+    if($categoria == "Perfumaria"){
+        echo "<img src=".BASE_URL."/assets/images/mr-burberry.jpg />";
+    } else if($categoria == "Casa"){
+        echo "<img src=".BASE_URL."/assets/images/casa.jpg />";
+        } else if($categoria == "Decoração"){
+        echo "<img src=".BASE_URL."/assets/images/decoracao.jpg />";
+    } else {
+        echo "<img src=".BASE_URL."/assets/images/decoracao.jpg />";
+    }
+    
+    
+    ;?>
+</div>
+<div style="clear:both"></div><!-- pra tirar uma linha branca que ficava antes do banner -->
+<div class="containerHome">
 <h1><?php echo $categoria;?></h1>
 
 <?php foreach ($produtos as $produto): ?>
@@ -9,5 +26,6 @@
     </div>
     </a>
 <?php endforeach; ?>
+</div>
 <div style="clear:both"></div>
 

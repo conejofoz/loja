@@ -14,14 +14,32 @@ body{
 
 
 .topo{
-    height: 100px;
-    background-color: #EEE;
+    max-width: 800px;
+    height: 130px;
+    background-color: white;
+    margin: auto;
+}
+
+.logotipo{
+    width: 180px;
+}
+
+.banner{
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    float: left;
+}
+
+.banner img{
+    width: 100%;
+    max-height: 500px;
 }
 
 
 .menu{
     height: 50px;
-    background-color: #DDD;
+    background-color: #99cc00;
 }
 
 
@@ -45,7 +63,7 @@ body{
     line-height: 50px;
     padding-left: 10px;
     padding-right: 10px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     cursor: pointer;
 }
 
@@ -56,22 +74,27 @@ body{
 
 
 .menu a{
-    color: #000; 
+    color: white; 
 }
 
 
 .container{
     width: 100%;
-    max-width: 800px;
+    /*max-width: 800px;*/
     min-height: 300px;
     background-color: white;
     margin: auto;
 }
 
+.containerHome{
+   max-width: 1000px;
+   margin: auto;
+}
+
 
 .rodape{
     height: 100px;
-    background-color: #DDD;
+    background-color: #99cc00;
 }
 
 
@@ -82,13 +105,19 @@ body{
     float:left;
     background-color:#EEEEEE;
     text-align:center;
+    border-radius: 10px;
+    padding: 2px;
 }
 
+.produto img{
+    border-radius: 10px;
+}
 
 .produto a{
     text-decoration: none;
     color: black;
 }
+
 
 .produto img:hover{
     width: 185px;
@@ -100,15 +129,37 @@ body{
 }
 
 .produto_foto{
-    width: 300px;
-    height: 300px;
+    border-radius: 20px;
+    width: 500px;
+    height:500px;
     background-color: white;
     margin-top: 20px;
     margin-bottom: 20px;
-    float: left
+    float: left;
+    
+}
+
+.produto_foto img{
+    border-radius: 10px;
 }
 
 
 .produto_info{
+    width: 200px;
     float: left;
+}
+
+.botaoAddCarrinho{
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    background-color: green;
+    border: none;
+    text-decoration: none;
+}
+
+.botaoAddCarrinho:hover{
+   border: 12px;
+   border-color: red;
+   background-color: #99cc00;
 }
