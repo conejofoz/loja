@@ -5,6 +5,6 @@
     <h2><?php echo $produto['nome'];?></h2>
     <?php echo $produto['descricao'];?>
     <h3><?php echo $produto['preco'];?></h3>
-    <a href="">Adicionar ao carrinho</a>
+    <a href="<?php echo BASE_URL;?>/carrinho/add/<?php echo $produto['id'];?>">Adicionar ao carrinho</a>
 </div>
 <div style="clear: both"></div>
