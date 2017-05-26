@@ -9,9 +9,9 @@ if(ENVIRONMENT == "development"){
     $config['dbuser'] = 'root';
     $config['dbpass'] = 'conejo74';
 } else {
-    define("BASE_URL", "http://infinity-group.net/pzp/loja");
-    $config['dbname'] = 'infinitygroup';
-    $config['host']   = 'mysql.infinity-group.net';
+    define("BASE_URL", "");
+    $config['dbname'] = '';
+    $config['host']   = '';
     $config['dbuser'] = 'infinitygroup';
     $config['dbpass'] = 'conejo24';
 }
