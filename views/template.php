@@ -21,6 +21,12 @@
                     
                     <a href="<?php echo BASE_URL; ?>/contato"><li>Contato</li></a>
                 </ul>
+                <div class="carrinho">
+                    <a href="<?php echo BASE_URL; ?>/carrinho">
+                    Carrinho:<br/>
+                    <?php echo (isset($_SESSION['carrinho']))?count($_SESSION['carrinho']):'0' ; ?> Ítens
+                    </a>
+                </div>
             </div>
         </div>
         <div class="container">

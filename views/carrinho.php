@@ -13,7 +13,7 @@
         <td><?php echo $produto['nome']; ?></td>
         <td><?php echo 'R$'.$produto['preco']; ?></td>
         <td>
-            
+            <a href="<?php echo BASE_URL ; ?>/carrinho/del/<?php echo $produto['id']; ?>">Remover</a> 
         </td>
     </tr>
     <?php $subtotal += $produto['preco']; ?>
@@ -21,5 +21,6 @@
     <tr>
         <td colspan="2" align="right">Sub-total:</td>
         <td align="left">R$ <?php echo $subtotal; ?></td>
+        <td><a href="<?php echo BASE_URL ; ?>/carrinho/finalizar">Finalizar Compra</a></td>
     </tr>
 </table>
