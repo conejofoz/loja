@@ -1,6 +1,7 @@
 <html>
     <head>
-        <title>Nossa loja</title>
+        <title>Infinity Group S.A.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
     </head>
     <body>
@@ -16,7 +17,7 @@
                     <a href="<?php echo BASE_URL; ?>/empresa"><li>Empresa</li></a>
                     
                     <?php foreach ($menu as $menuitem): ?>
-                    <a href="<?php echo BASE_URL; ?>/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo $menuitem['titulo']; ?></li></a>
+                    <a href="<?php echo BASE_URL; ?>/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo utf8_encode($menuitem['titulo']); ?></li></a>
                     <?php endforeach; ?>
                     
                     <a href="<?php echo BASE_URL; ?>/contato"><li>Contato</li></a>

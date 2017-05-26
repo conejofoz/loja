@@ -7,7 +7,7 @@ if(ENVIRONMENT == "development"){
     $config['dbname'] = 'loja';
     $config['host']   = 'localhost';
     $config['dbuser'] = 'root';
-    $config['dbpass'] = 'conejo74';
+    $config['dbpass'] = '';
 } else {
     define("BASE_URL", "");
     $config['dbname'] = '';
