@@ -12,6 +12,6 @@ if(ENVIRONMENT == "development"){
     define("BASE_URL", "");
     $config['dbname'] = '';
     $config['host']   = '';
-    $config['dbuser'] = 'infinitygroup';
-    $config['dbpass'] = 'conejo24';
+    $config['dbuser'] = '';
+    $config['dbpass'] = '';
 }
