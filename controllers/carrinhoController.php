@@ -13,18 +13,20 @@ class carrinhoController extends controller {
             $prods = $_SESSION['carrinho'];
         }
         if (count($prods)) {
-            $sql = "SELECT * FROM produtos WHERE id IN (" . implode(',', $prods) . ")";
-            $sql = $this->db->query($sql);
-            if ($sql->rowCount() > 0) {
-                $dados['produtos'] = $sql->fetchAll();
-            }
-
+            $produtos = new produtos();
+            $dados['produtos'] = $produtos->get_produtos_by_id($prods);
             $this->loadTemplate("carrinho", $dados);
         } else {
             header("Location: " . BASE_URL . "/");
         }
     }
 
+    
+    
+    
+    
+    
+    
     public function add($id) {
         if (!empty($id)) {
             if (!isset($_SESSION['carrinho'])) {
@@ -44,6 +46,32 @@ class carrinhoController extends controller {
             }
             header("Location: " . BASE_URL . "/carrinho");
         }
+    }
+    
+    
+    public function finalizar(){
+        $dados = array(
+            'pagamentos' => array(),
+            'total' => 0
+        );
+        
+        $p = new pagamentos();
+        $dados['pagamentos'] = $p->getPagamentos();
+        
+        $prods = array();
+        if (isset($_SESSION['carrinho'])) {
+            $prods = $_SESSION['carrinho'];
+        }
+        if (count($prods)) {
+            $produtos = new produtos();
+            $dados['produtos'] = $produtos->get_produtos_by_id($prods);
+            
+            foreach ($dados['produtos'] as $prod){
+                $dados['total'] += $prod['preco'];
+            }
+        } 
+        
+        $this->loadTemplate("finalizar_compra", $dados); 
     }
 
 }
