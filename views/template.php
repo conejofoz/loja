@@ -3,13 +3,19 @@
         <title>Infinity Group S.A.</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="topo">
             <div class="logotipo">
                 <img src="<?php echo BASE_URL; ?>/assets/images/logo2.jpg" class="logotipo" />
+            </div>
+            <div class="buscaPrincipal">
+                <input type="text" placeholder="Digite aqui sua busca.">
+            </div>
+            <div class="botaoBusca">
+                <img src="<?php echo BASE_URL; ?>/assets/images/icones/lupa.png" width="20" height="20"/>
             </div>
         </div>
         <div class="menu">

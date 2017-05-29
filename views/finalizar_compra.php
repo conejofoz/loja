@@ -1,5 +1,5 @@
 <div class="containerHome frmFinalizarCompra">
-    <h1 class="tituloH1">Finalizar Compra</h1>
+    <h1>Finalizar Compra</h1>
     <form method="POST">
         <?php if (!empty($erro)): ?>
             <div class="erro"><?php echo $erro; ?></div>

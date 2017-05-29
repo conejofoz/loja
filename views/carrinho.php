@@ -1,3 +1,4 @@
+<div class="containerHome">
 <h1>Carrinho de compras</h1>
 <table border="0" width="100%">
     <tr>
@@ -23,4 +24,7 @@
         <td align="left">$ <?php echo number_format($subtotal,2,',','.'); ?></td>
         <td><a href="<?php echo BASE_URL ; ?>/carrinho/finalizar" class="finalizarCompra">Finalizar Compra</a></td>
     </tr>
+    
 </table>
+<br/>
+</div>
