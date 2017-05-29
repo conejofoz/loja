@@ -13,10 +13,10 @@ class contatoController extends controller{
             $email = addslashes($_POST['email']);
             $msg = addslashes($_POST['mensagem']);
             $html = "Nome: ".$nome."<br/>Email: ".$email."<br/>Mensagem: ".$msg;
-            $headers = 'From: conejofoz@gmaill.com'."\r\n";
+            $headers = 'From: ecommerce@infinity-group.net'."\r\n";
             $headers .= 'Reply-To: '.$email."\r\n";
             $headers .= 'X-Mailer: PHP/'.phpversion();
-            mail("conejofoz@gmail.com", "Contato pelo site em: ".date('d/m/Y'), $html, $headers);
+            mail("ecommerce@infinity-group.net", "Contato pelo site em: ".date('d/m/Y'), $html, $headers);
             $dados['msg'] = "E-mail enviado com sucesso";
         }
         

@@ -18,7 +18,7 @@ class categoriaController extends controller {
             $cat = new categorias();
             $dados['categoria'] = $cat->getNome($id);
 
-            $this->loadTemplate("categoria", $dados);
+            $this->loadTemplate('categoria', $dados);
         } else {
             echo "id não existente";
         }

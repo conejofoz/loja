@@ -21,12 +21,6 @@ class carrinhoController extends controller {
         }
     }
 
-    
-    
-    
-    
-    
-    
     public function add($id) {
         if (!empty($id)) {
             if (!isset($_SESSION['carrinho'])) {
@@ -47,17 +41,17 @@ class carrinhoController extends controller {
             header("Location: " . BASE_URL . "/carrinho");
         }
     }
-    
-    
-    public function finalizar(){
+
+    public function finalizar() {
         $dados = array(
             'pagamentos' => array(),
-            'total' => 0
+            'total' => 0,
+            'erro' => ''
         );
-        
+
         $p = new pagamentos();
         $dados['pagamentos'] = $p->getPagamentos();
-        
+
         $prods = array();
         if (isset($_SESSION['carrinho'])) {
             $prods = $_SESSION['carrinho'];
@@ -65,13 +59,67 @@ class carrinhoController extends controller {
         if (count($prods)) {
             $produtos = new produtos();
             $dados['produtos'] = $produtos->get_produtos_by_id($prods);
-            
-            foreach ($dados['produtos'] as $prod){
+
+            foreach ($dados['produtos'] as $prod) {
                 $dados['total'] += $prod['preco'];
             }
-        } 
-        
-        $this->loadTemplate("finalizar_compra", $dados); 
+        }
+
+        if (isset($_POST['nome']) && !empty($_POST['nome'])) {
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+            $endereco = addslashes($_POST['endereco']);
+            if (isset($_POST['pg'])) {
+                $pg = $_POST['pg'];
+            } else {
+                $pg = '';
+            }
+            if (!empty($email) && !empty($senha) && !empty($endereco) && !empty($pg)) {
+                $uid = 0;
+                $u = new usuario();
+                if ($u->isExiste($email)) {
+                    if ($u->isExiste($email, $senha)) {
+                        $uid = $u->getId($email);
+                    } else {
+                        $dados['erro'] = "Usuário e/ou senha inválido";
+                    }
+                } else {
+                    $uid = $u->criar($nome, $email, $senha);
+                }
+
+                if ($uid > 0) {
+                    $subtoal = 0;
+                    $prods = array();
+                    if (isset($_SESSION['carrinho'])) {
+                        $prods = $_SESSION['carrinho'];
+                    }
+                    if (count($prods)) {
+                        $produtos = new produtos();
+                        $prods = $produtos->get_produtos_by_id($prods);
+
+                        foreach ($prods as $prod) {
+                            $dados['total'] += $prod['preco'];
+                        }
+                    }
+
+                    $v = new vendas();
+                    $link = $v->setVendas($uid, $endereco, $subtoal, $pg, $prods);
+//echo $link;
+//exit;
+                    header("Location:".$link."");
+                }
+            } else {
+                $dados['erro'] = "Preencha todos os campos";
+            }
+        }
+
+        $this->loadTemplate("finalizar_compra", $dados);
+    }
+
+    public function obrigado() {
+        $dados = array();
+        $this->loadTemplate("obrigado", $dados);
     }
 
 }
