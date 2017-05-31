@@ -2,6 +2,7 @@
     <head>
         <title>Infinity Group S.A.</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
@@ -11,6 +12,11 @@
             <div class="logotipo">
                 <img src="<?php echo BASE_URL; ?>/assets/images/logo2.jpg" class="logotipo" />
             </div>
+            
+            <button class="btn-menu"> 
+            <i class="fa fa-bars fa-lg"></i> 
+            </button>
+            
             <div class="buscaPrincipal">
                 <input type="text" placeholder="Digite aqui sua busca.">
             </div>
@@ -19,6 +25,11 @@
             </div>
         </div>
         <div class="menu">
+            
+            <a class="btn-close">
+               <i class="fa fa-times"></i>
+            </a>
+            
             <div class="menuint">
                 <ul>
                     <a href="<?php echo BASE_URL; ?>"><li>Home</li></a>
@@ -58,5 +69,16 @@
             </p>
         </div>
         <div style="clear:both"></div>
+        
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" ></script>
+   	    <script>
+   	   	    $(".btn-menu").click(function(){
+                $(".menu").show();
+   	   	    });
+
+   	   	    $(".btn-close").click(function(){
+               $(".menu").hide();
+   	   	    });
+   	    </script>
     </body>
 </html>
