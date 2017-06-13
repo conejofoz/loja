@@ -25,45 +25,27 @@
                 <a href="#"><i class="fa fa-envelope"></i></a>
             </div>
         </div>
+        
         <div class="topo">
             <div class="logotipo">
                 <img src="<?php echo BASE_URL; ?>/assets/images/logo2.jpg" />
             </div>
-            
-            <button class="btn-menu"> 
-            <i class="fa fa-bars fa-lg"></i> 
-         </button>
-            
-            
-
-
             <div class="buscaPrincipal">
-                <div class="buscaPrincipalInt">
-                    <input type="text" placeholder="Digite aqui sua busca."/>
-                </div>
-                
-                <div class="botaoBusca">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </div>
-
-
-
+                <input type="text" placeholder="Digite aqui sua busca."/>
+                <i class="fa fa-search" aria-hidden="true"></i>
             </div>
-
-
-
-
-
-
-
-
         </div>
+
+        <button class="btn-menu"> 
+            <i class="fa fa-bars fa-lg"></i> 
+        </button>
+
 
         <div class="menu">
 
-            
+
             <a class="btn-close">
-               <i class="fa fa-times"></i>
+                <i class="fa fa-times"></i>
             </a>
 
 

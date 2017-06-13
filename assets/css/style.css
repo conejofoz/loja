@@ -83,16 +83,17 @@ h3{
 
 .topo{
     width: 100%;
-    max-width: 800px;
-    height: 105px;
-
+    /*background-color: ccc;*/
     margin: auto;
-
+    position: static;  
 }
 
 .logotipo{
     width: 150px;
     float: left;
+    position: relative;
+    left: 0px;
+    
 }
 
 .logotipo img{
@@ -102,24 +103,28 @@ h3{
 
 .buscaPrincipal{
     float: left;
-    width: 300px;
-    margin-top: 35px;
-    margin-left: 20px;
+    position: relative;
+    top: 30px;
+    width: 30%;
+    margin-left: 10%;
+   
 
 }
 
 .buscaPrincipalInt{
-    width: 260px;
-    float: left;
+   
 
 
 }
 
 .buscaPrincipalInt input{
-    width: 100%;
     height: 35px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    float: left;
+    width: 85%;
+    border: none;
+    padding: 5px;
 }
 
 .botaoBusca{
@@ -128,7 +133,9 @@ h3{
     padding: 9px;
     border-radius: 5px;
     background-color:  #77B4D8;
-
+    float: right;
+    width: 10%;
+    text-align: center;
 
 
 }
@@ -252,6 +259,7 @@ h3{
 }
 
 .containerHome{
+    float: left;
     width: 100%;
     /*max-width: 1000px;*/
     margin: auto;
@@ -490,16 +498,48 @@ h3{
 /*==============MOBILE FIRST==============*/
 /*==============DISPOSITIVOS MINI==============*/
 @media screen and (min-width: 320px) {
-    h3{
+    
+     .buscaPrincipal{
+        width: 98%;
+        float: none;
+        margin-left: 1px;
+        top: -1px;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 20%; /* diminuiu 1%*/
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
+    
+    .btn-menu{
+        position: absolute;
+        top: 20px;
+        right: 3%;
+    }
+
+    
+    
+    
+    
+ /*   h3{
         font-weight: 700;
         font-size: 1.5em;
         color:  gray;
     }
 
-    .logotipo{
-        position: absolute;
-        left: 10px;
-    }
+    
 
     .produto{
         width: 100%;
@@ -510,29 +550,15 @@ h3{
         float: left;
     }
 
-    /*  busca*/    
-    .buscaPrincipal{
-        
-        float: left;
-        width: 280px;
-        top: 10px;
-        margin-left: 20px;
-        margin-bottom: 20px;
+    
 
+    .topo{
+        width: 100%;
     }
-    .buscaPrincipalInt{
-        width: 240px;
-        float: left;
+    
 
 
-    }
-    /* fim busca*/
-
-
-
-
-
-   
+  */ 
 
 }
 
@@ -540,7 +566,34 @@ h3{
 
 /*==============DISPOSITIVOS PEQUENOS==============*/
 @media screen and (min-width: 480px) {
-    h3{
+    
+     .buscaPrincipal{
+        width: 50%;
+        margin-left: 4%;
+        float: left;
+        top: 30px;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 10%; /* diminuiu %*/
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
+
+    
+    
+ /*   h3{
         font-size: 1.5em;
         color:  gray;
     }
@@ -553,14 +606,39 @@ h3{
 
 
 
-
+*/
 }
 
 
 
 /*==============DISPOSITIVOS PEQUENOS - TABLETS==============*/
 @media screen and (min-width: 768px) {
-    h3{
+    
+     .buscaPrincipal{
+        width: 50%;
+        margin-left: 10%;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 24%; /* diminuiu 2%*/
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
+
+    
+    
+ /*   h3{
         font-size: 1.5em;
         color:  gray;
     }
@@ -569,48 +647,75 @@ h3{
         width: 40%;
     }
 
-    /*  busca*/    
-    .buscaPrincipal{
-        float: left;
-        width: 300px;
-        top: 20px;
-        margin-left: 100px;
-    }
-    .buscaPrincipalInt{
-        width: 260px;
-        float: left;
-
-    }
-    /* fim busca*/
-
+   
+*/
 }
 
 
 /*==============DISPOSITIVOS MEDIOS  - TABLETS E DESKTOPS==============*/
 @media screen and (min-width: 960px) {
-    h3{font-weight: 300;
+    
+     .buscaPrincipal{
+        width: 50%;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 25%; /* diminuiu 1%*/
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
+
+/*    h3{font-weight: 300;
        font-size: 1.5em;
     }
 
     .produto{
         width: 30%;
     }
-
+*/
 }
 
 
 
-
-
-
-
-
-
-
-
 /*==============DISPOSITIVOS GRANDES - WIDESCREEN==============*/
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
+    
+    .buscaPrincipal{
+        width: 50%;
+        margin-left: 20%;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 25%; /* diminuiu 1%*/
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
 
+    
+    
+    
     h3{
         font-size: 1em;
 
@@ -631,6 +736,130 @@ h3{
 
 
     .menu{
+        float: left;
+        margin-bottom: 0;
+        position: relative;
+        height: 50px;
+        background-color:#77B4D8;
+        /*box-shadow: 5px 5px 5px rgba(0,0,0,0.5);*/
+        display: block !important; /*força menu aparecer*/
+
+
+    }
+
+
+    .menuint{
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        margin-top: 0;
+        font-size: 1.2em; 
+        color: #fff; 
+        padding: 10px;
+    }
+
+
+
+
+    .menu ul{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .menu li{
+        list-style: none;
+        float: left;
+        line-height: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+    }
+
+
+    .menu li:hover{
+        padding: 0;
+        background-color: #ffff00;
+        color: #99cc00;
+        height: 50px;
+        margin-top: 0;
+
+
+    }
+
+
+    .menu a{
+        color: white; 
+    }
+
+    .menu .carrinho a{
+        font-size: 1em; 
+    }
+
+    .carrinho{
+        float: right;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/*==============DISPOSITIVOS GRANDES - WIDESCREEN==============*/
+@media screen and (min-width: 1280px) {
+    
+    .buscaPrincipal{
+        width: 50%;
+    }
+    .buscaPrincipal input{
+        border: solid 1px #77B4D8;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        text-transform: uppercase;
+    }
+    .buscaPrincipal i{
+        background-color:  #77B4D8;
+        width: 26%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: -3px;
+        border: solid 1px wheat;
+        color: white;
+    }
+
+    
+    
+    
+    h3{
+        font-size: 1em;
+
+    }
+
+    .produto{
+        width: 30%;
+    }
+
+    .btn-menu{
+        display: none;
+    }
+    
+    .btn-close{
+        display: none;
+    }
+
+
+
+    .menu{
+        float: left;
         margin-bottom: 0;
         position: relative;
         height: 50px;
