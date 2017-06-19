@@ -59,6 +59,7 @@
                     <?php endforeach; ?>
 
                     <a href="<?php echo BASE_URL; ?>/contato"><li>Contato</li></a>
+                    <a href="<?php echo BASE_URL; ?>/pedidos"><li>Pedidos</li></a>
                 </ul>
 
 

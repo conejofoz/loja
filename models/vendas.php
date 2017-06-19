@@ -5,6 +5,50 @@ class vendas extends Model {
     public function __construct() {
         parent::__construct();
     }
+    
+    public function verificarVendas(){
+        require 'libraries/PagSeguroLibrary/PagSeguroLibrary.php';
+        $code = '';
+        $type = '';
+        if(isset($_POST['notificationCode']) && isset($_POST['notificationType'])){
+            $code = trim($_POST['notificationCode']);
+            $type = trim($_POST['notificationType']);
+            
+            $notificationType = new PagSeguroNotificationType($type);
+            $strType = $notificationType->getTypeFromValue();
+            
+            $credentials = PagSeguroConfig::getAccountCredentials();
+            
+            try{
+                $transaction = PagSeguroNotificationService::checkTransaction($credentials, $code);
+                $ref = $transaction->getReference();
+                $status = $transaction->getStatus()->getValue();
+                
+                $novoStatus = 0;
+                switch ($status){
+                    case '1': //Aguardando Pgto.
+                    case '2'; //Em análise   
+                        $novoStatus = '1';
+                        break;
+                    case '3': //Paga
+                    case '4': //Disponivel    
+                        $novoStatus = '2';
+                        break;
+                    case '6': //Devolvida
+                    case '7': //Cancelada
+                        $novoStatus = '3';
+                        break;
+                }
+                
+                $this->db->query("UPDATE vendas SET status_pg = '$novoStatus' WHERE id = '$ref'");
+                
+            } catch (PagSeguroServiceException $e) {
+                echo "falha: ".$e->getMessage();
+
+            }
+            
+        }
+    }
 
     public function setVendas($uid, $endereco, $valor, $pg, $prods) {
 
@@ -32,11 +76,12 @@ class vendas extends Model {
             require 'libraries/PagSeguroLibrary/PagSeguroLibrary.php';
             $paymentRequest = new PagSeguroPaymentRequest();
             foreach ($prods as $prod) {
-                $paymentRequest->addItem($prod['id'], $prod['nome'], $prod['preco']);
+                $paymentRequest->addItem($prod['id'], $prod['nome'], 1, $prod['preco']);
             }
 
             $paymentRequest->setCurrency("BRL");
             $paymentRequest->setReference($id_venda);
+            
             $paymentRequest->setRedirectURL(BASE_URL . "/carrinho/obrigado");
             $paymentRequest->addParameter("notificationURL", BASE_URL . "/carrinho/notificacao");
 
