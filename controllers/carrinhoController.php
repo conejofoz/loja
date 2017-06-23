@@ -78,20 +78,22 @@ class carrinhoController extends controller {
             if (!empty($email) && !empty($senha) && !empty($endereco) && !empty($pg)) {
                 $uid = 0;
                 $u = new usuario();
-                if ($u->isExiste($email)) {
+                if($u->isExiste($email)){
                     if ($u->isExiste($email, $senha)) {
                         $uid = $u->getId($email);
                     } else {
                         $dados['erro'] = "Usuário e/ou senha inválido";
                     }
                 } else {
+                   // echo "email que estou procurando[".$email."] não foi encontrado";
+                   // throw new Exception("não achou");
                     $uid = $u->criar($nome, $email, $senha);
                 }
 
                 if ($uid > 0) {
-                    $subtoal = 0;
+                    $subtotal = 0;
                     $prods = array();
-                    if (isset($_SESSION['carrinho'])) {
+                    if(isset($_SESSION['carrinho'])) {
                         $prods = $_SESSION['carrinho'];
                     }
                     if (count($prods)) {
@@ -99,12 +101,14 @@ class carrinhoController extends controller {
                         $prods = $produtos->get_produtos_by_id($prods);
 
                         foreach ($prods as $prod) {
-                            $dados['total'] += $prod['preco'];
+                            $subtotal += $prod['preco'];
                         }
                     }
+                    
+                    //$subtotal = $dados['total'];
 
                     $v = new vendas();
-                    $link = $v->setVendas($uid, $endereco, $subtoal, $pg, $prods);
+                    $link = $v->setVendas($uid, $endereco, $subtotal, $pg, $prods);
 //echo $link;
 //exit;
                     header("Location:".$link."");

@@ -24,6 +24,10 @@ body{
     /*fim reset*/
 }
 
+th{
+    text-align: left;
+}
+
 
 img{
     max-width: 100%;
@@ -921,6 +925,20 @@ h3{
 
     .carrinho{
         float: right;
+    }
+    
+    .erro{
+        padding: 15px;
+        border: 1px solid #000;
+        background-color: #EEE;
+        margin-bottom: 10px;
+    }
+    
+    .pedido_produto{
+        width: 100px;
+        height: 150px;
+        float: left;
+        border: 2px solid #000;
     }
 
 

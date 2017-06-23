@@ -6,6 +6,47 @@ class vendas extends Model {
         parent::__construct();
     }
     
+    public function getPedido($id){
+        $array = array();
+        $sql = $this->db->query($sql);
+        if($sql->rowCount() > 0 ){
+            $array = $sql->fetch();
+            
+            $array['produtos'] = $this->getProdutosDoPedido($id);
+        }
+        return $array;
+    }
+    
+    public function getProdutosDoPedido($id){
+        $array = array();
+        $sql = "SELECT vendas_produtos.quantidade, "
+                . "vendas_produtos.id_produto, "
+                . "produtos.nome, "
+                . "produtos.imagem, "
+                . "produtos.preco "
+                . "FROM vendas_produtos "
+                . "LEFT JOIN produtos ON vendas_produtos.id_produto = produtos.id"
+                . " WHERE vendas_produtos.id_venda = '$id'";
+        $sql = $this->db->query($sql);
+        if($sql->rowCount() > 0){
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+
+
+    public function getPedidosDoUsuario($id_usuario){
+        $array = array();
+        if(!empty($id_usuario)){
+            $sql = "SELECT *, (SELECT pagamentos.nome FROM pagamentos WHERE pagamentos.id = vendas.forma_pg) as tipopgto FROM vendas WHERE id_usuario = '$id_usuario'";
+            $sql = $this->db->query($sql);
+            if($sql->rowCount() > 0){
+                $array = $sql->fetchAll();
+            }
+        }
+        return $array;
+    }
+    
     public function verificarVendas(){
         require 'libraries/PagSeguroLibrary/PagSeguroLibrary.php';
         $code = '';

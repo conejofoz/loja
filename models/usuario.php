@@ -17,13 +17,12 @@ class usuario extends Model {
     }
 
     public function isExiste($email, $senha = '') {
-        $senha = md5($senha);
         if (!empty($senha)) {
+            $senha = md5($senha);
             $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha = '$senha'";
         } else {
             $sql = "SELECT * FROM usuarios WHERE email='$email'";
         }
-
         $sql = $this->db->query($sql);
         if ($sql->rowCount() > 0) {
             return true;
@@ -34,6 +33,7 @@ class usuario extends Model {
     
     
     public function criar($nome, $email, $senha){
+        $senha = md5($senha);
         $sql = "INSERT INTO usuarios (nome, email, senha) VALUES('$nome','$email','$senha') ";
         $this->db->query($sql);
         return $this->db->lastInsertId();
@@ -41,6 +41,7 @@ class usuario extends Model {
     
     
     public function getId($email){
+        $id = 0;
         $sql = "SELECT * FROM usuarios WHERE email = '$email'";
         $sql = $this->db->query($sql);
         if($sql->rowCount()>0){
