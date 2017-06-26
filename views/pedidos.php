@@ -15,7 +15,7 @@
     <tr>
     <td><?php echo $pedido['id']; ?></td>
     <td>R$ <?php echo number_format($pedido['valor'],2,',','.'); ?></td>
-    <td><?php echo $pedido['tipopgto']; ?></td>
+    <td><?php echo utf8_encode($pedido['tipopgto']); ?></td>
     <td><?php echo $config['status_pgto'][$pedido['status_pg']]; ?></td>
     <td><a href="<?php echo BASE_URL ;?>/pedidos/ver/<?php echo $pedido['id']; ?>">Detalhes</a></td>
     </tr>

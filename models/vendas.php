@@ -6,12 +6,14 @@ class vendas extends Model {
         parent::__construct();
     }
     
-    public function getPedido($id){
+    public function getPedido($id, $id_usuario){
         $array = array();
+        
+        $sql = "SELECT *, (SELECT pagamentos.nome FROM pagamentos WHERE pagamentos.id = vendas.forma_pg) as tipopgto FROM vendas WHERE id = '$id' AND id_usuario = '$id_usuario'";
         $sql = $this->db->query($sql);
+
         if($sql->rowCount() > 0 ){
             $array = $sql->fetch();
-            
             $array['produtos'] = $this->getProdutosDoPedido($id);
         }
         return $array;
