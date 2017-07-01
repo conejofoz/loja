@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Infinity Group S.A.</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
@@ -35,6 +36,7 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
         </div>
+        <div style="clear: both"></div><!--desce o titulo das paginas-->
 
         <button class="btn-menu"> 
             <i class="fa fa-bars fa-lg"></i> 
@@ -51,15 +53,11 @@
 
             <div class="menuint">
                 <ul>
-                    <a href="<?php echo BASE_URL; ?>"><li>Home</li></a>
-                    <a href="<?php echo BASE_URL; ?>/empresa"><li>Empresa</li></a>
-
-                    <?php foreach ($menu as $menuitem): ?>
-                        <a href="<?php echo BASE_URL; ?>/categoria/ver/<?php echo $menuitem['id']; ?>"><li><?php echo utf8_encode($menuitem['titulo']); ?></li></a>
-                    <?php endforeach; ?>
-
-                    <a href="<?php echo BASE_URL; ?>/contato"><li>Contato</li></a>
-                    <a href="<?php echo BASE_URL; ?>/pedidos"><li>Pedidos</li></a>
+                    <a href="<?php echo BASE_URL; ?>/painel"><li>Home</li></a>
+                    <a href="<?php echo BASE_URL; ?>/painel/categorias"><li>Categorias</li></a>
+                    <a href="<?php echo BASE_URL; ?>/painel/produtos"><li>Produtos</li></a>
+                    <a href="<?php echo BASE_URL; ?>/painel/vendas"><li>Vendas</li></a>
+                    <a href="<?php echo BASE_URL; ?>/painel/usuarios"><li>Usuários</li></a>
                 </ul>
 
 
