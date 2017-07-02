@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="<?php echo BASE_URL; ?>/assets/css/style.css" rel="stylesheet"/>
+        <link href="<?php echo BASE_URL; ?>/painel/assets/css/style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     </head>
@@ -79,9 +79,11 @@
                 email: infinitygroup.net@gmail.com
                 Tel: 595-061-512216/500628
             </p>
-            <p class="copyright">
-                Av. San Blás, 136 - Ciudad del Este - Paraguay
-            </p>
+            <div class="copyright">
+                <p>
+                   Av. San Blás, 136 - Ciudad del Este - Paraguay
+                </p>
+            </div>
         </div>
         <div style="clear:both"></div>
 
