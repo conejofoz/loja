@@ -15,11 +15,22 @@ class produtosController extends controller {
                 $offset = ($limit *$p) - $limit;
             }
             
-            $prod = new Produtos();
+            $prod = new produtos();
             $dados['limit_produtos'] = $limit;
             $dados['total_produtos'] = $prod->getTotalProdutos();
             $dados['produtos'] = $prod->getProdutos($offset, $limit);
             $this->loadTemplate('produtos', $dados);
+    }
+    
+    
+    public function add(){
+        $dados = array();
+//        if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+//            $cat = new categorias();
+//            $cat->addCategoria($_POST['titulo']);
+//            header("Location: " . BASE_URL . "/painel/categorias");
+//        }
+        $this->loadTemplate('produtos_add', $dados);
     }
     
     
