@@ -21,4 +21,11 @@ class Produtos extends Model{
         }
         return $q;
     }
+    
+    
+    public function inserir($nome, $categoria, $preco, $quantidade, $md5imagem){
+        $sql = "INSERT INTO produtos(nome, id_categoria, preco, quantidade, imagem) VALUES('$nome','$categoria','$preco','$quantidade','$md5imagem')";
+        echo $sql."<br/>";
+        $sql = $this->db->query($sql);
+    }
 }

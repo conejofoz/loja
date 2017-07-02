@@ -24,8 +24,32 @@ class produtosController extends controller {
     
     
     public function add(){
-        $dados = array();
-//        if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+        $dados = array(
+            'categorias' => array()
+        );
+        
+        $cat = new categorias();
+        $dados['categorias'] = $cat->getCategorias();
+        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_FILES['imagem']) && !empty($_FILES['imagem']['tmp_name'])){
+            $nome = addslashes($_POST['nome']);
+            $descricao = addslashes($_POST['descricao']);
+            $categoria = addslashes($_POST['categoria']);
+            $preco = addslashes($_POST['preco']);
+            $quantidade = addslashes($_POST['quantidade']);
+            $imagem = $_FILES['imagem'];
+            if(in_array($imagem['type'], array('image/jpeg', 'image/jpg', 'image/png'))){
+                $extencao = 'jpg';
+                if($imagem['type'] == 'image/png'){
+                    $extencao = 'png';
+                }
+                $md5imagem = md5(time().rand(0, 9999)).'.'.$extencao;
+                move_uploaded_file($imagem['tmp_name'], '../assets/images/prods/'.$md5imagem);
+                
+                $prod = new Produtos();
+                $prod->inserir($nome, $categoria, $preco, $quantidade, $md5imagem);
+                header("Location: " . BASE_URL . "/painel/produtos");
+            }
+        }
 //            $cat = new categorias();
 //            $cat->addCategoria($_POST['titulo']);
 //            header("Location: " . BASE_URL . "/painel/categorias");
