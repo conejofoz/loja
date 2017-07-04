@@ -6,11 +6,11 @@
 
 <form method="POST">
     E-mail:<br/>
-    <input type="text" name="usuario"/><br/><br/>
+    <input type="text" name="usuario" class="form-control"/><br/><br/>
     
     Senha:<br/>
-    <input type="password" name="senha"/><br/><br/>
-    <input type="submit" value="Logar"/><br/><br/>
+    <input type="password" name="senha" class="form-control"/><br/><br/>
+    <input type="submit" value="Logar" class="btn btn-default"/><br/><br/>
 </form>
 
 </div>
