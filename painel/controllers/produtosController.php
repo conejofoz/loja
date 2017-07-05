@@ -85,10 +85,8 @@ class produtosController extends controller {
                     }
                     $md5imagem = md5(time() . rand(0, 9999)) . '.' . $extencao;
                     move_uploaded_file($imagem['tmp_name'], '../assets/images/prods/' . $md5imagem);
-                    
-                    $prod->updateImagem($id, $md5imagem);
 
-                    
+                    $prod->updateImagem($id, $md5imagem);
                 }
             }
             header("Location: " . BASE_URL . "/painel/produtos");
@@ -98,6 +96,14 @@ class produtosController extends controller {
 //            header("Location: " . BASE_URL . "/painel/categorias");
 //        }
         $this->loadTemplate('produtos_edit', $dados);
+    }
+
+    public function remove($id) {
+        if (!empty($id)) {
+            $prod = new produtos();
+            $prod->removeProduto($id);
+            header("Location: " . BASE_URL . "/painel/produtos");
+        }
     }
 
     /* public function add(){

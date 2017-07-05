@@ -52,4 +52,17 @@ class Produtos extends Model{
         $sql = "UPDATE produtos SET imagem = '$imagem' WHERE id = '$id'";
         $sql = $this->db->query($sql);
     }
+    
+    
+    
+    public function removeProduto($id){
+        $sql = "SELECT imagem FROM produtos WHERE id = '$id'";
+        $sql = $this->db->query($sql);
+        if($sql->rowCount() > 0){
+            $img = $sql->fetch();
+            $img = $img['imagem'];
+            unlink( BASE_URL ."/assets/images/prods/".$img);
+            $this->db->query("DELETE FROM produtos WHERE id = '$id'");
+        }
+    }
 }
